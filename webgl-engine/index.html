@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+    <head>
+		<title>Lab 1 - Simple 2D Drawing</title>
+		<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+		<script>
+			document.loadScript = function(url) {
+			    var script = document.createElement("script");
+			    script.src = url;  
+                script.type = "text/javascript"
+			    document.head.appendChild(script); 
+			}
+        </script>
+        <style> 
+            .ie{
+              display: inline-block;
+            }
+        </style> 
+        <!-- IMPORT FILES -->
+        <script type="text/javascript" src="/gl_init.js"></script>
+        <script type="text/javascript" src="/util.js"></script>
+        <script type="text/javascript" src="/matrix.js"></script>
+        <script type="text/javascript" src="/quat.js"></script>
+        <script type="text/javascript" src="/vec.js"></script>
+        <script type="text/javascript" src="/time.js"></script>
+        <script type="text/javascript" src="/primitives.js"></script>
+        <script type="text/javascript" src="/go.js"></script>
+        <script type="text/javascript" src="/transform.js"></script>
+        <script type="text/javascript" src="/shader.js"></script>
+        <script type="text/javascript" src="/mesh.js"></script>
+        <script type="text/javascript" src="/pipeline.js"></script>
+        <script type="text/javascript" src="/renderer.js"></script>
+        <script type="text/javascript" src="/scene.js"></script>
+        <script type="text/javascript" src="/engine.js"></script>
+        <script type="text/javascript" src="/input.js"></script>
+        <script type="text/javascript" src="/game.js"></script>
+        <script type="text/javascript" src="/commands.js"></script>
+        <script type="text/javascript" src="/perlin.js"></script>
+        <script type="text/javascript" src="/customSphere.js"></script>
+
+	</head>
+
+	<body onload="init()">
+        <h1> Heiarchy: scene -> axis -> globe -> water, rotate with arrows </h1>
+        <canvas id="code00-canvas" style="border: none; background-color: blue;" width="1000" height="900"></canvas>
+        <button type="button" onclick="stop()"> STOP </button>
+        <br>
+        <!--  SLIDERS  -->
+
+        <div>
+            <p class="ie"> MinHeight </p>
+            <input class="ie" type="range" min="0" max="1.5" value="0.8" step="0.01"
+            oninput="rangeValue1.innerText = this.value; minHeight=+this.value; calc();">
+            <p class="ie" id="rangeValue1">0.8</p>
+        </div>
+        <div>
+            <p class="ie"> MaxHeight </p>
+            <input class="ie" type="range" min="0.5" max="4" value="1.3" step="0.01"
+            oninput="rangeValue2.innerText = this.value; maxHeight=+this.value; calc();">
+            <p class="ie" id="rangeValue2">1.3</p>
+        </div>
+        <div>
+            <p class="ie"> Frequency </p>
+            <input class="ie" type="range" min="0" max="5" value="1.75" step="0.01"
+            oninput="rangeValue3.innerText = this.value; wFreq=+this.value; calc();">
+            <p class="ie" id="rangeValue3">1.75</p>
+        </div>
+        <div>
+            <p class="ie"> Water Level </p>
+            <input class="ie" type="range" min="0" max="1.5" value="1" step="0.01"
+            oninput="rangeValue4.innerText = this.value; waterLevel=+this.value; calc();">
+            <p class="ie" id="rangeValue4">1</p>
+        </div>
+        <div>
+            <p class="ie"> Sand Threshold </p>
+            <input class="ie" type="range" min="0" max="1" value="0.51" step="0.005"
+            oninput="rangeValue5.innerText = this.value; sTH=+this.value; calc();">
+            <p class="ie" id="rangeValue5">0.51</p>
+        </div>
+        <div>
+            <p class="ie"> Snow Threshold </p>
+            <input class="ie" type="range" min="0" max="1" value="0.75" step="0.005"
+            oninput="rangeValue46innerText = this.value; wTH=+this.value; calc();">
+            <p class="ie" id="rangeValue6">0.75</p>
+        </div>
+	</body>
+</html>

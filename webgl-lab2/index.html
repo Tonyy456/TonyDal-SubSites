@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Lab 1 - Simple 2D Drawing</title>
+		<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+		<script type="text/javascript" src="/helper.js"></script>
+		<script type="text/javascript" src="/input_handler.js"></script>
+		<script type="text/javascript" src="/shapeBuffer.js"></script>
+		<script type="text/javascript" src="/tonyMatrix.js"></script>
+		<script type="text/javascript" src="/color.js"></script>
+		<script type="text/javascript" src="/shapes.js"></script>
+		<script type="text/javascript" src="/shader_setup.js"></script>
+		<script type="text/javascript" src="/gl_init.js"></script>
+		<script type="text/javascript" src="/lab1.js"></script>
+	</head>
+
+	<body onload="webGLStart();">
+		<canvas id="code00-canvas" style="border: none;" width="600" height="600"></canvas>
+		<br/>
+        <button onclick="resizeWindow()" data-inline="true"> Resize Window</button>
+        <button onclick="clearShapes()" data-inline="true"> Clear Shapes </button>
+        <button id="toggle1" onclick="toggleRecoloring()" data-inline="true" style="background-color:black; border-color:blue; color:white"> toggle Recoloring </button>
+        <div>
+            <p id="shape-type"> Draw Type: </h2>
+        </div>
+	</body>
+
+</html>
